@@ -2,6 +2,7 @@ package com.bj.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.annotation.Resource;
@@ -17,7 +18,8 @@ public class BaseController{
     protected HttpServletRequest request;
     protected HttpServletResponse response;
     protected HttpSession session;
-
+    @Value("${ContextUrl}")
+    protected  String ContextUrl;
     @ModelAttribute
     public void setReqAndRes(HttpServletRequest request, HttpServletResponse response){
         this.request = request;

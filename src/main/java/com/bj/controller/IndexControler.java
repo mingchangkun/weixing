@@ -2,21 +2,16 @@
 package com.bj.controller;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
-import com.bj.pojo.Products;
 import com.bj.service.ProductsService;
 import com.bj.utility.CheckUtil;
 import com.bj.utility.MessageUtil;
-import com.bj.utility.TextMessage;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexControler extends BaseController{
@@ -50,7 +45,9 @@ public class IndexControler extends BaseController{
 			if("1".equals(Content)){
 				message = MessageUtil.initText(toUserName, FromUserName, MessageUtil.firstMenu());
 			}else if("2".equals(Content)){
-				message = MessageUtil.initText(toUserName, FromUserName, MessageUtil.secondMenu());
+				String Prourl=ContextUrl+"img/g.jpg";
+				System.out.println(Prourl+"图片地址");
+				message = MessageUtil.initNewsMessage(toUserName, FromUserName,Prourl);
 			}else if("3".equals(Content)){
 				message = MessageUtil.initText(toUserName, FromUserName, MessageUtil.threeMenu());
 			}else if("?".equals(Content) || "£¿".equals(Content)){
